@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 20 15% 8%;
+    --foreground: 40 30% 90%;
+
+    --card: 20 12% 12%;
+    --card-foreground: 40 30% 90%;
+
+    --popover: 20 12% 12%;
+    --popover-foreground: 40 30% 90%;
+
+    --primary: 38 70% 50%;
+    --primary-foreground: 20 15% 8%;
+
+    --secondary: 20 10% 18%;
+    --secondary-foreground: 40 20% 80%;
+
+    --muted: 20 8% 15%;
+    --muted-foreground: 30 10% 55%;
+
+    --accent: 30 60% 45%;
+    --accent-foreground: 40 30% 95%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 15% 20%;
+    --input: 25 15% 20%;
+    --ring: 38 70% 50%;
+
+    --radius: 0.75rem;
+
+    /* Harmonium-specific tokens */
+    --gold: 38 70% 50%;
+    --gold-glow: 38 80% 60%;
+    --amber: 30 80% 45%;
+    --walnut: 20 25% 12%;
+    --mahogany: 15 30% 15%;
+    --ivory: 45 30% 92%;
+    --ebony: 20 10% 10%;
+    --key-shadow: 20 20% 6%;
+    --glass-bg: 20 15% 14%;
+    --glass-border: 30 15% 25%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --gradient-gold: linear-gradient(135deg, hsl(38 70% 50%), hsl(30 80% 45%));
+    --gradient-glass: linear-gradient(135deg, hsl(20 15% 16% / 0.8), hsl(20 12% 12% / 0.6));
+    --shadow-gold: 0 0 20px hsl(38 70% 50% / 0.3);
+    --shadow-key: 0 4px 8px hsl(20 20% 4% / 0.5);
+    --shadow-key-pressed: 0 1px 2px hsl(20 20% 4% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background: var(--gradient-glass);
+    border: 1px solid hsl(var(--glass-border));
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius);
+  }
+
+  .gold-glow {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .white-key {
+    background: linear-gradient(180deg, hsl(var(--ivory)) 0%, hsl(40 20% 85%) 100%);
+    border: 1px solid hsl(30 10% 70%);
+    box-shadow: var(--shadow-key);
+    border-radius: 0 0 6px 6px;
+    transition: all 0.08s ease;
+    color: hsl(20 15% 25%);
+  }
+
+  .white-key:active, .white-key.pressed {
+    background: linear-gradient(180deg, hsl(40 20% 80%) 0%, hsl(38 25% 75%) 100%);
+    box-shadow: var(--shadow-key-pressed);
+    transform: translateY(2px);
+  }
+
+  .white-key.pressed {
+    box-shadow: var(--shadow-gold), var(--shadow-key-pressed);
+    border-color: hsl(var(--gold));
+  }
+
+  .black-key {
+    background: linear-gradient(180deg, hsl(20 15% 18%) 0%, hsl(var(--ebony)) 100%);
+    border: 1px solid hsl(20 10% 15%);
+    box-shadow: var(--shadow-key);
+    border-radius: 0 0 4px 4px;
+    transition: all 0.08s ease;
+    color: hsl(40 20% 70%);
+  }
+
+  .black-key:active, .black-key.pressed {
+    background: linear-gradient(180deg, hsl(20 15% 15%) 0%, hsl(20 10% 8%) 100%);
+    box-shadow: var(--shadow-key-pressed);
+    transform: translateY(2px);
+  }
+
+  .black-key.pressed {
+    box-shadow: 0 0 12px hsl(var(--gold) / 0.5), var(--shadow-key-pressed);
+    border-color: hsl(var(--gold) / 0.6);
+  }
+
+  .notation-strip {
+    @apply overflow-x-auto whitespace-nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--gold) / 0.3) transparent;
+  }
+
+  .notation-strip::-webkit-scrollbar {
+    height: 4px;
+  }
+  .notation-strip::-webkit-scrollbar-thumb {
+    background: hsl(var(--gold) / 0.3);
+    border-radius: 2px;
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 15px hsl(38 70% 50% / 0.2); }
+  50% { box-shadow: 0 0 30px hsl(38 70% 50% / 0.4); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
