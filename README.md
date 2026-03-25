@@ -165,7 +165,7 @@ The `dist/` folder contains the production-ready app. Deploy to:
 - **Any static host** — Upload `dist/` contents
 
 ### Environment Variables
-No environment variables required. Audio samples are loaded from CDN.
+No environment variables required. Audio samples are included in the repository.
 
 ---
 

@@ -1,7 +1,7 @@
 import { useRef, useCallback, useState, useEffect } from 'react';
 
-const SAMPLE_URL = 'https://rajaramaniyer.github.io/harmonium-kannan-orig.wav';
-const REVERB_URL = 'https://rajaramaniyer.github.io/reverb.wav';
+const SAMPLE_URL = '/harmonium.wav';
+const REVERB_URL = '/reverb.wav';
 
 interface ActiveNote {
   sources: AudioBufferSourceNode[];

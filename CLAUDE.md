@@ -85,7 +85,7 @@ The core audio engine is in `src/hooks/useHarmoniumAudio.ts`. It manages:
 - **Build tool**: Vite with SWC for React
 - **TypeScript**: Lenient config (no strict null checks, implicit any allowed)
 - **Testing**: Vitest + Testing Library + Playwright
-- **Audio samples**: Hosted on GitHub Pages (rajaramaniyer.github.io)
+- **Audio samples**: Included locally in `/public` folder (harmonium.wav, reverb.wav)
 - **MIDI note reference**: Middle C (MIDI 60) = Sa in the current key
 - **Transpose range**: Adjusts global pitch without changing sargam labels (Sa is always Sa)
 - **Octave control**: Shifts entire keyboard up/down by octaves
